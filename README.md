@@ -245,3 +245,8 @@ Use the 'near login' command , Creates a key pair locally in `.near-credentials`
 And record the directory to the keystorePath option in the configuration file
 
 In addition, another program needs to be run for near messenger. Please check [near-lake-s3](./near-lake-s3/README.md)
+
+
+## Run inside Intel SGX
+
+CGO_CFLAGS=-D_FORTIFY_SOURCE=0  ego-go build -o ../../build/compass-oracle

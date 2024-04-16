@@ -30,6 +30,8 @@ import (
 	"github.com/mapprotocol/compass/mapprotocol"
 	"github.com/mapprotocol/compass/msg"
 	"github.com/urfave/cli/v2"
+
+	"github.com/mapprotocol/compass/remoteattestation"
 )
 
 var app = cli.NewApp()
@@ -174,6 +176,8 @@ func run(ctx *cli.Context, role mapprotocol.Role) error {
 	}
 
 	log.Debug("Config on initialization...", "config", *cfg)
+
+	remoteattestation.Ra_server()
 
 	util.Init(cfg.Other.Env, cfg.Other.MonitorUrl)
 	// Used to signal core shutdown due to fatal error
